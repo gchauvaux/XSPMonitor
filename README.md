@@ -1,5 +1,5 @@
 # XSPMonitor
-monitoring the flow of JSP or ASP pages
+monitoring the flow of JSP, ASPX or ASP pages
 
 XSPMonitor is an alternative to the MVC scheme for monitoring the control of flow for the application pages.
 The control of page execution is made procedural using a propritary language. The XSPMonitor components are:
