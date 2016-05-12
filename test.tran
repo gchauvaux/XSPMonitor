@@ -1,0 +1,29 @@
+
+deftrans portefeuille; 
+commandes 
+       "-[A]nnuler=*/[S]upprimer=*/[M]odifier=*/[C]réer=CREER/+Valider=*";
+
+§ Session("ETAT")="VIDE"; §;
+ loadxml cporcharge.xml;
+ getconnection MO_CONN fam,cres,astxxx003; 
+exec mdl_initportefeuille; 
+
+repeat 
+( 
+title "Portefeuilles"; 
+disp;
+exec tpl_menu;
+getconnection MO_CONN CPOR,note,astprs001;
+exec pgl_portefeuille;
+exec pgl_command;
+send; 
+
+case SUPPRIMER 
+(
+ 	getconnection MO_CONN CPOR,note; 
+begintrans; 
+exec mdl_suppor; 
+commit;
+);
+);
+enddef;
